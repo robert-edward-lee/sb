@@ -1,0 +1,13 @@
+STDCXX_OPTS = -std=c++98
+WARN_OPTS = -Wall -Wextra -pedantic
+
+test: common_test make_signed
+	@echo "All test are done!"
+
+common_test:
+	@$(CXX) $(CXXFLAGS) $(TEST_DIR)/$@.cpp -o $(TEST_DIR)/$@
+	@./$(TEST_DIR)/$@
+
+make_signed:
+	@$(CXX) $(CXXFLAGS) $(TEST_DIR)/$@.cpp -o $(TEST_DIR)/$@
+	@./$(TEST_DIR)/$@
