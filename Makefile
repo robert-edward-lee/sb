@@ -8,11 +8,12 @@ include Makefile.gcc
 
 clean:
 	@$(RM) \
+		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.a,$(dir))) \
+		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.d,$(dir))) \
+		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.dll,$(dir))) \
 		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.exe,$(dir))) \
 		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.o,$(dir))) \
 		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.obj,$(dir))) \
-		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.dll,$(dir))) \
-		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.a,$(dir))) \
 		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.tds,$(dir)))
 
 format:
