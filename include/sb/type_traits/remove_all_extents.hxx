@@ -9,7 +9,7 @@ template<typename T> struct remove_all_extents {
     typedef T type;
 };
 template<typename T> struct remove_all_extents<T[]> {
-    typedef T type;
+    typedef typename remove_all_extents<T>::type type;
 };
 template<typename T, size_t N> struct remove_all_extents<T[N]> {
     typedef typename remove_all_extents<T>::type type;
