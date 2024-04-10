@@ -1,8 +1,5 @@
 #include "sb/type_traits.hxx"
-
-using namespace sb;
-
-#define UNIQUE_NAME SB_CONCAT(a, __LINE__) SB_MAYBE_UNUSED
+#include "tests/common.hxx"
 
 int main(void) {
     add_cv<int> UNIQUE_NAME;

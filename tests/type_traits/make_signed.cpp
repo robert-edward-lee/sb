@@ -1,9 +1,5 @@
-#include <cassert>
-#include <iostream>
-
 #include "sb/type_traits.hxx"
-
-using namespace sb;
+#include "tests/common.hxx"
 
 #define test_make_signed(T1, T2) assert((is_same<make_signed<T1>::type, T2>::value))
 

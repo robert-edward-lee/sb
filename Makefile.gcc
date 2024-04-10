@@ -1,10 +1,6 @@
 STDCXX_OPTS = -std=c++98
 WARN_OPTS = -Wall -Wextra -pedantic
 
-VPATH = $(TEST_DIR)
-TEST_SRCS = $(wildcard $(TEST_DIR)/*.cpp)
-TEST_BINS = $(patsubst %.cpp,%,$(TEST_SRCS))
-
 test: $(TEST_BINS)
 	@echo "All test are done!"
 

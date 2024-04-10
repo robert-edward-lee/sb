@@ -1,11 +1,27 @@
-INCLUDE_DIR = include
-TEST_DIR = tests
-WORK_DIRS = $(sort $(dir $(wildcard $(TEST_DIR)/ include/sb/*/)))
+################################################################################
+#                              ОПРЕДЕЛЕНИЯ ПАПОК                               #
+################################################################################
+INCLUDE_DIR = include .
 
+TEST_DIR = tests
+TEST_DIRS = $(sort $(TEST_DIR)/ $(dir $(wildcard $(TEST_DIR)/*/)))
+TEST_SRCS = $(foreach dir,$(TEST_DIRS),$(wildcard $(dir)*.cpp))
+TEST_BINS = $(patsubst %.cpp,%,$(TEST_SRCS))
+
+WORK_DIRS = $(sort $(TEST_DIRS) $(dir $(wildcard include/sb/*/)) $(dir $(wildcard include/sb/*/*/)))
+
+VPATH = $(TEST_DIR)
+
+################################################################################
+#                              НАСТРОЙКА ТУЛЧЕЙНА                              #
+################################################################################
 CXX = g++
 CXXFLAGS += $(addprefix -I,$(INCLUDE_DIR)) $(WARN_OPTS) $(STDCXX_OPTS)
 include Makefile.gcc
 
+################################################################################
+#                                  ОБЩИЕ ЦЕЛИ                                  #
+################################################################################
 clean:
 	@$(RM) \
 		$(foreach dir,$(WORK_DIRS),$(addsuffix /*.a,$(dir))) \
