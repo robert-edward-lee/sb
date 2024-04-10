@@ -11,7 +11,7 @@ struct S {
 int main(void) {
     assert(is_unsigned<A>::value == false);
     assert(is_unsigned<B>::value == false);
-#if defined(__GNUC__)
+#if defined(__GNUC__) && !defined(__clang__)
     assert(is_unsigned<__typeof__(S::p)>::value != is_unsigned<__typeof__(S::q)>::value);
 #endif
     assert(is_unsigned<float>::value == false);

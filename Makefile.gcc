@@ -1,3 +1,4 @@
+INCLUDE_OPTS = $(addprefix -I,$(INCLUDE_DIR))
 STDCXX_OPTS = -std=c++98
 WARN_OPTS = -Wall -Wextra -pedantic -Wno-long-long
 
