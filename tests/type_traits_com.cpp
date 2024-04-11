@@ -2,6 +2,10 @@
 #include "tests/common.hxx"
 
 int main(void) {
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4101)
+#endif
     add_cv<int> TEST_UNIQUE_NAME_UNUSED;
     add_const<int> TEST_UNIQUE_NAME_UNUSED;
     add_volatile<int> TEST_UNIQUE_NAME_UNUSED;
@@ -47,5 +51,8 @@ int main(void) {
     remove_extent<int> TEST_UNIQUE_NAME_UNUSED;
     remove_pointer<int> TEST_UNIQUE_NAME_UNUSED;
     remove_reference<int> TEST_UNIQUE_NAME_UNUSED;
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
     return 0;
 }
