@@ -5,7 +5,7 @@
 
 enum E {};
 
-int main() {
+int main(void) {
     test_make_unsigned(char, unsigned char);
     test_make_unsigned(int, unsigned int);
     test_make_unsigned(volatile long, volatile unsigned long);
