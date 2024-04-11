@@ -36,7 +36,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //                           Attribute Feature-Test                           //
 ////////////////////////////////////////////////////////////////////////////////
-#if !defined(SB_ALWAYS_INLINE)
+#if !defined(SB_ALWAYS_INLINE) && SB_GCC_VERSION_CHECK(3, 1, 0)
 #define SB_ALWAYS_INLINE __attribute__((always_inline))
 #endif
 
@@ -53,7 +53,7 @@
 #endif
 #endif
 
-#if !defined(SB_DEPRECATED)
+#if !defined(SB_DEPRECATED) && SB_GCC_VERSION_CHECK(3, 1, 0)
 #define SB_DEPRECATED __attribute__((deprecated))
 #define SB_DEPRECATED_MSG(msg) __attribute__((deprecated(msg)))
 #endif
@@ -67,20 +67,20 @@
 #define SB_UNLIKELY(x) __builtin_expect(x, 0)
 #endif
 
-#if !defined(SB_MAYBE_UNUSED) && SB_GCC_VERSION_CHECK(4, 0, 0)
+#if !defined(SB_MAYBE_UNUSED) && SB_GCC_VERSION_CHECK(2, 7, 0)
 #define SB_MAYBE_UNUSED __attribute__((unused))
 #endif
 
-#if !defined(SB_NODISCARD) && SB_GCC_VERSION_CHECK(3, 4, 0)
+#if !defined(SB_NODISCARD) && SB_GCC_VERSION_CHECK(3, 3, 0)
 #define SB_NODISCARD __attribute__((warn_unused_result))
 #define SB_NODISCARD_MSG(msg) __attribute__((warn_unused_result))
 #endif
 
-#if !defined(SB_NOINLINE)
+#if !defined(SB_NOINLINE) && SB_GCC_VERSION_CHECK(2, 96, 0)
 #define SB_NOINLINE __attribute__((noinline))
 #endif
 
-#if !defined(SB_NORETURN)
+#if !defined(SB_NORETURN) && SB_GCC_VERSION_CHECK(2, 5, 0)
 #define SB_NORETURN __attribute__((noreturn))
 #endif
 

@@ -35,7 +35,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //                           Attribute Feature-Test                           //
 ////////////////////////////////////////////////////////////////////////////////
-#if !defined(SB_ALWAYS_INLINE)
+#if !defined(SB_ALWAYS_INLINE) && (_MSC_VER >= 1200)
 #define SB_ALWAYS_INLINE __forceinline
 #endif
 
@@ -57,7 +57,7 @@
 #define SB_NODISCARD_MSG(msg) _Check_return_
 #endif
 
-#if !defined(SB_NOINLINE)
+#if !defined(SB_NOINLINE) && (_MSC_VER >= 1400)
 #define SB_NOINLINE __declspec(noinline)
 #endif
 
