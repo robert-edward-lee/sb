@@ -6,6 +6,5 @@ test: $(TEST_BINS)
 	@echo "All test are done!"
 
 %: %.cpp
-	@"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 	@$(CXX) $(CXXFLAGS) $< /link /out:$@.exe
 	@$@.exe

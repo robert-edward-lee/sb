@@ -13,9 +13,9 @@ struct C {
 };
 
 int main(void) {
-    assert(is_union<A>::value == false);
-    assert(is_union<B>::value == true);
-    assert(is_union<C>::value == false);
-    assert(is_union<int>::value == false);
+    assert(!is_union<A>::value);
+    assert(is_union<B>::value);
+    assert(!is_union<C>::value);
+    assert(!is_union<int>::value);
     return 0;
 }
