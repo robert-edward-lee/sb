@@ -1,12 +1,6 @@
 #include "sb/type_traits.hxx"
 #include "tests/common.hxx"
 
-class A {};
-class B {
-    int i;
-};
-enum C {};
-
 int main(void) {
     assert((!is_same<float, s32>::value));
     assert((is_same<int, int>::value));

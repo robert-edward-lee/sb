@@ -8,20 +8,27 @@ TEST_DIRS = $(sort $(TEST_DIR)/ $(dir $(wildcard $(TEST_DIR)/*/)))
 TEST_SRCS = $(foreach dir,$(TEST_DIRS),$(wildcard $(dir)*.cpp))
 TEST_BINS = $(patsubst %.cpp,%,$(TEST_SRCS))
 
-WORK_DIRS = $(sort . $(TEST_DIRS) $(dir $(wildcard include/sb/*/)) $(dir $(wildcard include/sb/*/*/)))
+WORK_DIRS = $(sort . $(TEST_DIRS) \
+			$(dir $(wildcard include/sb/*/)) \
+			$(dir $(wildcard include/sb/*/*/)))
 
 VPATH = $(TEST_DIR)
 
 ################################################################################
 #                              НАСТРОЙКА ТУЛЧЕЙНА                              #
 ################################################################################
-CXX = g++
+CC = gcc
+
+CFLAGS += $(INCLUDE_OPTS) $(WARN_OPTS) $(STDC_OPTS)
 CXXFLAGS += $(INCLUDE_OPTS) $(WARN_OPTS) $(STDCXX_OPTS)
-ifeq ($(CXX),g++)
+
+ifeq ($(CC),gcc)
+CXX = g++
 include Makefile.gcc
-else ifeq ($(CXX),clang++)
+else ifeq ($(CC),clang)
+CXX = clang++
 include Makefile.gcc
-else ifeq ($(CXX),cl)
+else ifeq ($(CC),cl)
 include Makefile.msvc
 endif
 
