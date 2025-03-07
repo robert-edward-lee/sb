@@ -28,7 +28,7 @@ int main(void) {
     assert(!is_pointer<__typeof__(mem_fun_ptr)>::value);
 #endif
 #if SB_CXX_VERSION_CHECK(201103)
-    assert(!is_pointer<nullptr_t>::value);
+    assert(!is_pointer<std::nullptr_t>::value);
 #endif
     return 0;
 }

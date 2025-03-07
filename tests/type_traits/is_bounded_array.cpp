@@ -13,4 +13,3 @@ int main(void) {
     assert(is_bounded_array<int[3]>::value);
     return 0;
 }
-

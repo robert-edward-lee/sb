@@ -23,13 +23,11 @@ CFLAGS += $(INCLUDE_OPTS) $(WARN_OPTS) $(STDC_OPTS)
 CXXFLAGS += $(INCLUDE_OPTS) $(WARN_OPTS) $(STDCXX_OPTS)
 
 ifeq ($(CC),gcc)
-CXX = g++
-include Makefile.gcc
+include platforms/gcc.mk
 else ifeq ($(CC),clang)
-CXX = clang++
-include Makefile.gcc
+include platforms/clang.mk
 else ifeq ($(CC),cl)
-include Makefile.msvc
+include platforms/msvc.mk
 endif
 
 ################################################################################

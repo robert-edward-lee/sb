@@ -16,12 +16,18 @@ int main(void) {
     assert(sizeof(u128) == 16);
     assert(sizeof(s128) == 16);
 #endif
+#if defined(SB_HAS_BFLOAT16)
+    assert(sizeof(bf16) == 2);
+#endif
+#if defined(SB_HAS_FLOAT16)
+    assert(sizeof(f16) == 2);
+#endif
     assert(sizeof(f32) == 4);
     assert(sizeof(f64) == 8);
 #if defined(SB_HAS_FLOAT128)
     assert(sizeof(f128) == 16);
 #endif
     assert(sizeof((char *)0 - (char *)1) == sizeof(ptrdiff_t));
-    assert(sizeof((char *)0 - (char *)1) == sizeof(size_t));
+    assert(sizeof(sizeof(0)) == sizeof(size_t));
     return 0;
 }

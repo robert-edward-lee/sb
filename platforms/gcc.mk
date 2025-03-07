@@ -1,5 +1,7 @@
+CXX = g++
+
 INCLUDE_OPTS = $(addprefix -I,$(INCLUDE_DIR))
-STDCXX_OPTS = -std=c++98
+STDCXX_OPTS = -ansi
 WARN_OPTS = -Wall -Wextra -pedantic -Wno-long-long
 
 test: $(TEST_BINS)

@@ -3,7 +3,7 @@
 
 class A {};
 class B {
-    int i;
+    int i SB_MAYBE_UNUSED;
 };
 enum C {};
 
